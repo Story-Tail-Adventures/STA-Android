@@ -1,0 +1,129 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  build:
+    name: Build App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version-file: ".java-version"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Build App
+        run: ./gradlew bundle --scan
+
+  checkstyle:
+    name: Checkstyle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version-file: ".java-version"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Run checkstyle
+        run: ./gradlew checkstyle --scan
+      - name: Archive checkstyle results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkstyle-results
+          path: "**/build/reports/checkstyle/"
+
+  ktlint:
+    name: ktlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version-file: ".java-version"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Run ktlint
+        run: ./gradlew ktlintCheck --scan
+      - name: Archive ktlint results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ktlint-results
+          path: "**/build/reports/ktlint/"
+
+  lint:
+    name: Lint Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version-file: ".java-version"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Run Lint Checks
+        run: ./gradlew lint --scan
+      - name: Archive lint results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results
+          path: "**/build/reports/lint-results*.*"
+
+  tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Cache Maven
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version-file: ".java-version"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Run Unit Tests
+        run: ./gradlew test koverXmlReportDebug koverXmlReportProductionDebug --max-workers 1 --scan
+      - name: Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
+      - name: Archive Unit Test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: "**/build/reports/tests/"
