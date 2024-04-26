@@ -95,7 +95,7 @@ jobs:
         run: ./gradlew test --scan
 #        run: ./gradlew test koverXmlReportDebug koverXmlReportDebug --max-workers 1 --scan
       - name: Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Archive Unit Test results
