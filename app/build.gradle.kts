@@ -1,3 +1,5 @@
+import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -8,6 +10,8 @@ plugins {
 android {
     namespace = "com.story_tail.adventures.android"
     compileSdk = 34
+
+    configureTestOptions(project)
 
     defaultConfig {
         applicationId = "com.story_tail.adventures.android"
@@ -52,4 +56,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+fun configureTestOptions(project: Project){
+    // Kotlin Kover
+    project.plugins.apply("org.jetbrains.kotlinx.kover")
+    project.extensions.configure<KoverReportExtension> {
+        project.androidComponents.onVariants {
+            androidReports(it.name) {
+                xml {
+                    // HACK: update the report file so that codecov picks it up automatically
+                    setReportFile(project.layout.buildDirectory.file("reports/kover/${it.name}/report.xml"))
+                }
+            }
+        }
+    }
 }
