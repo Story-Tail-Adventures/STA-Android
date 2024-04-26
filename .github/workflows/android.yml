@@ -92,7 +92,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: Run Unit Tests
-        run: ./gradlew test koverXmlReportDebug koverXmlReportProductionDebug --max-workers 1 --scan
+        run: ./gradlew test --scan
+#        run: ./gradlew test koverXmlReportDebug koverXmlReportDebug --max-workers 1 --scan
       - name: Codecov
         uses: codecov/codecov-action@v4
         with:
