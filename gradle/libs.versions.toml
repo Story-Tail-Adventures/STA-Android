@@ -11,7 +11,7 @@ constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 firebaseCrashlytics = "18.6.4"
-gradle = "8.1.0"
+gradle = "8.4.0"
 googleServices = "4.4.1"
 firebaseCrashlyticsGradle = "2.9.9"
 
