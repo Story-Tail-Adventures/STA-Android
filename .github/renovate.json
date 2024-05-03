@@ -2,7 +2,5 @@
   "extends": [ "config:base" ],
   "dependencyDashboard": true,
   "labels": [ "dependencies" ],
-  "reviewers": ["gyasistory"],
   "lockFileMaintenance": { "enabled": true },
-  "packageRules": []
 }
