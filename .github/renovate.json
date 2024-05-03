@@ -2,5 +2,5 @@
   "extends": [ "config:base" ],
   "dependencyDashboard": true,
   "labels": [ "dependencies" ],
-  "lockFileMaintenance": { "enabled": true },
+  "lockFileMaintenance": { "enabled": true }
 }
