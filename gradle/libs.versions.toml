@@ -1,6 +1,6 @@
 [versions]
 agp = "8.3.2"
-kotlin = "1.9.23"
+kotlin = "1.9.0"
 coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -14,6 +14,9 @@ firebaseCrashlytics = "18.6.4"
 gradle = "8.4.0"
 googleServices = "4.4.1"
 firebaseCrashlyticsGradle = "2.9.9"
+lifecycleRuntimeKtx = "2.6.1"
+activityCompose = "1.8.0"
+composeBom = "2023.08.00"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +32,16 @@ firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashly
 gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
 google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
 firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsGradle" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
