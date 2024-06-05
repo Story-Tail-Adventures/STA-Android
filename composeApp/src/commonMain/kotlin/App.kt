@@ -3,7 +3,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -16,9 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
 import story_tailadvenutures.composeapp.generated.resources.Res
-import story_tailadvenutures.composeapp.generated.resources.compose_multiplatform
 import story_tailadvenutures.composeapp.generated.resources.sta_logo
 import theme.StoryTailMaterialTheme
 
@@ -30,8 +27,11 @@ fun App() {
 
         Scaffold(
             topBar = {
-                     TopAppBar(title = {Text("Compose Multiplatform")})
+                     TopAppBar(title = {Text("Story-Tail Adventures")})
                      },
+            drawerContent = {
+                Text("Drawer content")
+            }
         ) {
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(onClick = { showContent = !showContent }) {
