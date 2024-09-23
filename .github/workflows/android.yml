@@ -23,7 +23,7 @@ jobs:
           distribution: "temurin"
           java-version-file: ".java-version"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Build App
         run: ./gradlew bundle --scan
 
@@ -39,7 +39,7 @@ jobs:
           distribution: "temurin"
           java-version-file: ".java-version"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Run ktlint
         run: ./gradlew ktlintCheck --scan
       - name: Archive ktlint results
@@ -61,7 +61,7 @@ jobs:
           distribution: "temurin"
           java-version-file: ".java-version"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Run Lint Checks
         run: ./gradlew lint --scan
       - name: Archive lint results
@@ -90,7 +90,7 @@ jobs:
           distribution: "temurin"
           java-version-file: ".java-version"
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Run Unit Tests
         run: ./gradlew test koverXmlReport --max-workers 1 --scan
       - name: Codecov
