@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "323829223098",
+    "project_id": "story-tail-adventures",
+    "storage_bucket": "story-tail-adventures.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323829223098:android:f50a2bd905f101cb6f7c83",
+        "android_client_info": {
+          "package_name": "com.story_tail.adventures.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpZfO3FikMyiTjT6xR2VIMmHX0Tndh-TQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323829223098:android:5c8c33175b80f6986f7c83",
+        "android_client_info": {
+          "package_name": "com.story_tail.adventures.compose.kmm.testing.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpZfO3FikMyiTjT6xR2VIMmHX0Tndh-TQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

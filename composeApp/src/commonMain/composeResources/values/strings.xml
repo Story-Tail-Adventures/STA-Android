@@ -1,0 +1,7 @@
+<resources>
+    <string name="business_name">Story-Tail Adventures</string>
+
+    <string name="about_us_onboarding_title">About Us</string>
+    <string name="get_started_onboarding_title">Get Started</string>
+    <string name="get_started_onboarding_button_text">Let's Go</string>
+</resources>
