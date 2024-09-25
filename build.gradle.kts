@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
-    alias(libs.plugins.kover)
-    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kover) apply false
+    alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.google.gms.google.services) apply false
 }

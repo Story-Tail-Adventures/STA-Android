@@ -72,6 +72,9 @@ kotlin {
         }
         iosMain.dependencies {
         }
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
+        }
     }
 }
 
