@@ -22,7 +22,7 @@ material3Android = "1.2.1"
 mediaPlayerKMP = "1.0.8"
 mediaplayerKmpIosarm64 = "0.0.1"
 uiTextGoogleFonts = "1.6.8"
-voyager = "1.1.0-beta02"
+voyager = "1.1.0-beta03"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
